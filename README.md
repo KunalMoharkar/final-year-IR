@@ -2,7 +2,7 @@
 
 to install all the requirements use -
 
-pip install requirements.txt
+pip install -r requirements.txt
 
 put the processed data in data folder
 
