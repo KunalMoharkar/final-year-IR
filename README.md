@@ -9,3 +9,5 @@ put the processed data in data folder
 test the setup using-
 
 python/python3 main.py --mode=train --save_dir=saved_dirs/new_dir --model_name=LM_QAR
+
+for more customized options refer params file in lang_models
