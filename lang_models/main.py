@@ -41,7 +41,7 @@ def main():
     #   params are loaded from the save_dir
     # Logger is instantiated in saver
     
-    saver = Saver(save_dir, params)
+    saver = Saver(save_dir, params, mode=mode)
     logger = saver.logger
 
     params = saver.params

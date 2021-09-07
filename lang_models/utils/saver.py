@@ -26,11 +26,14 @@ USE_CUDA = torch.cuda.is_available()
 
 class Saver:
 
-    def __init__(self, save_dir, params):
+    def __init__(self, save_dir, params, mode=C.TRAIN_TYPE):
         if save_dir:
             self.save_dir = save_dir
-            self.params = params
-            self.params = _json_load(self._params_filename())
+
+            if mode == C.TRAIN_TYPE:
+                self.params = params
+            else:
+                self.params = _json_load(self._params_filename())
            
         else:
             raise Exception("save_dir argument not found")
