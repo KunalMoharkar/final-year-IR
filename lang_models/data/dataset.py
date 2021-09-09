@@ -24,7 +24,7 @@ class AmazonDataset(object):
         self.max_vocab_size = params[C.VOCAB_SIZE]
         suffix = 'qar_all'
 
-        train_path = '%s/test-%s.jsonl' % (C.INPUT_DATA_PATH, suffix)
+        train_path = '%s/train-%s.jsonl' % (C.INPUT_DATA_PATH, "qar")
         self.vocab = self.create_vocab(train_path)
 
         if mode == C.TRAIN_TYPE:
