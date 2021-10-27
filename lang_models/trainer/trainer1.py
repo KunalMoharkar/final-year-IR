@@ -215,7 +215,7 @@ class Trainer:
     def eval(self, dataloader, mode, output_filename=None, epoch=0):
 
         self.model.eval()
-
+        #print(dataloader.questionsDict)
         if dataloader is None:
             raise ('No [%s] Dataset' % mode)
         else:
@@ -224,14 +224,13 @@ class Trainer:
         compute_loss = mode != C.TEST_TYPE
         if compute_loss:
             self.loss.reset()
-
         gold_answers_dict = {}
         generated_answer_dict = {}
 
         for batch_itr, inputs in tqdm(enumerate(dataloader)):
             answer_seqs, question_seqs, question_ids, review_seqs, \
                 answer_lengths = _extract_input_attributes(inputs, self.model_name)
-
+            #print(question_seqs)
             _, _, output_seq, output_lengths = self._forward_pass(
                 question_seqs,
                 review_seqs,

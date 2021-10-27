@@ -105,7 +105,7 @@ class AmazonDataset(object):
                 except json.JSONDecodeError:
                     raise Exception('\"%s\" is not a valid json' % line)
 
-                if row[C.IS_ANSWERABLE] == 0:
+                if row[C.IS_ANSWERABLE] == 0 or row[C.CATEGORY]!="Electronics":
                     continue
 
                 question = row[C.QUESTION_TEXT]
@@ -121,7 +121,7 @@ class AmazonDataset(object):
                     reviewsDict.append(review_ids)
                     reviewId += 1
                     reviewsDictList.append(reviewId)
-
+                print(question)
                 # Add tuples to data 
                 question_tokens = self.tokenize(question)[:self.max_question_len]
                 question_ids = self.vocab.indices_from_token_list(question_tokens)
